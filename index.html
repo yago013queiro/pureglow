@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shine Cosmetics — Pure Glow | Clareador Corporal Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #FDF9F6;
+            --accent: #C19A6B;
+            --accent-light: #E8D5C4;
+            --accent-dark: #8B6B46;
+            --muted: #A68A7B;
+            --text: #2A211C;
+            --text-light: #5C4D42;
+            --card: #FFFFFF;
+            --radius: 20px;
+            --shadow: 0 12px 40px rgba(28, 20, 14, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+            background: linear-gradient(135deg, var(--bg) 0%, #FFFDFB 100%);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(193, 154, 107, 0.1), rgba(193, 154, 107, 0.05));
+            border: 1px solid rgba(193, 154, 107, 0.1);
+            padding: 8px;
+            box-shadow: 0 8px 20px rgba(193, 154, 107, 0.1);
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .brand h1 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: var(--accent-dark);
+            line-height: 1.1;
+        }
+
+        .brand p {
+            color: var(--text-light);
+            font-weight: 500;
+            font-size: 16px;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-light);
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+
+        .hero-content h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            color: var(--accent-dark);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .hero-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 500px;
+            background: linear-gradient(45deg, var(--accent-light), #f5f0eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 60px 0;
+        }
+
+        .benefit-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(193, 154, 107, 0.08);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(28, 20, 14, 0.12);
+        }
+
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-light), rgba(193, 154, 107, 0.2));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent);
+            font-size: 28px;
+        }
+
+        .benefit-card h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--accent-dark);
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+            font-size: 16px;
+        }
+
+        /* Results Section */
+        .results-section {
+            margin: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 40px;
+            color: var(--accent-dark);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .results-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .result-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(28, 20, 14, 0.12);
+        }
+
+        .result-image {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .result-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .result-label {
+            padding: 15px 20px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--muted);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Ingredients Section */
+        .ingredients {
+            background: linear-gradient(135deg, var(--accent-light) 0%, rgba(255, 255, 255, 0.8) 100%);
+            border-radius: var(--radius);
+            padding: 60px 40px;
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .ingredients h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 40px;
+            color: var(--accent-dark);
+            margin-bottom: 40px;
+        }
+
+        .ingredient-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .ingredient-item {
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(28, 20, 14, 0.06);
+            transition: var(--transition);
+        }
+
+        .ingredient-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(28, 20, 14, 0.1);
+        }
+
+        .ingredient-item h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 22px;
+            color: var(--accent-dark);
+            margin-bottom: 10px;
+        }
+
+        .ingredient-item p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+            border-radius: var(--radius);
+            padding: 70px 40px;
+            text-align: center;
+            color: white;
+            margin: 80px 0;
+        }
+
+        .cta-section h2 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--accent-dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Floating WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: var(--transition);
+            animation: pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        .whatsapp-float i {
+            color: white;
+            font-size: 28px;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: var(--accent-light);
+        }
+
+        .footer-column p, .footer-column a {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 14px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .hero-content {
+                text-align: center;
+            }
+            
+            .hero h2 {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .results-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 40px 0;
+            }
+            
+            .hero h2 {
+                font-size: 32px;
+            }
+            
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-section {
+                padding: 50px 20px;
+            }
+            
+            .cta-section h2 {
+                font-size: 36px;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .whatsapp-float i {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://w.app/yw8dle" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="container">
+        <header>
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="SHINE.PNG.jpeg" alt="Shine Cosmetics">
+                </div>
+                <div class="brand">
+                    <h1>Shine Cosmetics</h1>
+                    <p>Pure Glow — Clareador Corporal</p>
+                </div>
+            </div>
+            <nav class="nav-links">
+                <a href="#sobre">Sobre</a>
+                <a href="#beneficios">Benefícios</a>
+                <a href="#resultados">Resultados</a>
+                <a href="#ingredientes">Ingredientes</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </header>
+
+        <section class="hero" id="sobre">
+            <div class="hero-content">
+                <h2>Revele a luminosidade natural da sua pele</h2>
+                <p>Pure Glow é um clareador corporal desenvolvido com tecnologia avançada para uniformizar o tom da pele, reduzir manchas e devolver o brilho natural. Fórmula suave de rápida absorção que hidrata profundamente sem ressecar.</p>
+                <div class="btn-group">
+                    <button class="btn btn-primary" onclick="window.open('https://w.app/yw8dle', '_blank')">
+                        <i class="fas fa-shopping-bag"></i>
+                        Compre Agora
+                    </button>
+                    <button class="btn btn-secondary" onclick="window.open('https://www.instagram.com/shinee_cosmetics/', '_blank')">
+                        <i class="fab fa-instagram"></i>
+                        Siga-nos no Instagram
+                    </button>
+                </div>
+            </div>
+           
+           
+        </section>
+
+        <section class="benefits" id="beneficios">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-spa"></i>
+                </div>
+                <h3>Fórmula Suave</h3>
+                <p>Desenvolvida para todos os tipos de pele, incluindo as mais sensíveis. Não causa irritação ou ressecamento.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Rápida Absorção</h3>
+                <p>Textura leve que é rapidamente absorvida pela pele, sem deixar resíduos oleosos ou pegajosos.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-tint"></i>
+                </div>
+                <h3>Hidratação Profunda</h3>
+                <p>Além de clarear, hidrata a pele em profundidade, melhorando sua textura e viço natural.</p>
+            </div>
+        </section>
+
+        <section class="results-section" id="resultados">
+            <div class="section-header">
+                <h2>Resultados Visíveis</h2>
+                <p>Veja a transformação real proporcionada pelo Pure Glow em apenas 1 semana de uso</p>
+            </div>
+            <div class="results-container">
+                <div class="result-card">
+                    <div class="result-image">
+                        <img src="ANTES.PNG.jpeg" alt="Foto antes do uso do Pure Glow">
+                    </div>
+                    <div class="result-label">Antes</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-image">
+                        <img src="DEPOIS.JPG.jpeg" alt="Foto depois do uso do Pure Glow">
+                    </div>
+                    <div class="result-label">Depois</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ingredients" id="ingredientes">
+            <h2>Ingredientes Naturais e Eficazes</h2>
+            <div class="ingredient-list">
+                <div class="ingredient-item">
+                    <h3>Extrato de Limão Siciliano</h3>
+                    <p>Rico em vitamina C, ajuda a clarear manchas e uniformizar o tom da pele naturalmente.</p>
+                </div>
+                <div class="ingredient-item">
+                    <h3>Ácido Kójico</h3>
+                    <p>Derivado natural que inibe a produção de melanina, reduzindo manchas escuras com eficácia.</p>
+                </div>
+                <div class="ingredient-item">
+                    <h3>Ácido Hialurônico</h3>
+                    <p>Proporciona hidratação profunda, melhorando a elasticidade e textura da pele.</p>
+                </div>
+                <div class="ingredient-item">
+                    <h3>Niacinamida</h3>
+                    <p>Fortalece a barreira cutânea, reduz a inflamação e melhora a aparência geral da pele.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section" id="contato">
+            <h2>Pronto para Revelar Sua Pele Radiante?</h2>
+            <p>Junte-se a milhares de clientes satisfeitos e experimente a transformação que apenas Pure Glow pode oferecer</p>
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="window.open('https://w.app/yw8dle', '_blank')">
+                    <i class="fas fa-shopping-cart"></i>
+                    Compre Agora - 12x sem juros
+                </button>
+                <button class="btn btn-secondary" onclick="window.open('https://www.instagram.com/shinee_cosmetics/', '_blank')">
+                    <i class="fab fa-instagram"></i>
+                    Siga-nos no Instagram
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Shine Cosmetics</h3>
+                    <p>Comprometida com a excelência em cosméticos, desenvolvendo produtos que realçam a beleza natural com segurança e eficácia.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/shinee_cosmetics/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://w.app/yw8dle" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Produtos</h3>
+                    <a href="#">Pure Glow Clareador</a>
+                    <a href="#">Hidratante Facial</a>
+                    <a href="#">Sérum Antienvelhecimento</a>
+                    <a href="#">Protetor Solar</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Suporte</h3>
+                    <a href="#">Central de Ajuda</a>
+                    <a href="#">Perguntas Frequentes</a>
+                    <a href="#">Entregas e Devoluções</a>
+                    <a href="https://w.app/yw8dle" target="_blank">Fale Conosco</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p><i class="fab fa-whatsapp"></i> <a href="https://w.app/yw8dle" target="_blank">WhatsApp</a></p>
+                    <p><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/shinee_cosmetics/" target="_blank">@shinee_cosmetics</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> São Paulo, Brasil</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 Shine Cosmetics. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para links de navegação
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
